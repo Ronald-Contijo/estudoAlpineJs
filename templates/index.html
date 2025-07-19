@@ -23,33 +23,35 @@
             font-style: italic;
             font-weight: bold;
         }
-        .section{
+
+        .section {
             padding-left: 8em;
             padding-right: 8em;
         }
+
         /* Tablets e telas médias */
-@media (max-width: 1024px) {
-  .section {
-    padding-left: 4em;
-    padding-right: 4em;
-  }
-}
+        @media (max-width: 1024px) {
+            .section {
+                padding-left: 4em;
+                padding-right: 4em;
+            }
+        }
 
-/* Celulares grandes */
-@media (max-width: 768px) {
-  .section {
-    padding-left: 2em;
-    padding-right: 2em;
-  }
-}
+        /* Celulares grandes */
+        @media (max-width: 768px) {
+            .section {
+                padding-left: 2em;
+                padding-right: 2em;
+            }
+        }
 
-/* Celulares pequenos */
-@media (max-width: 480px) {
-  .section {
-    padding-left: 1em;
-    padding-right: 1em;
-  }
-}
+        /* Celulares pequenos */
+        @media (max-width: 480px) {
+            .section {
+                padding-left: 1em;
+                padding-right: 1em;
+            }
+        }
     </style>
 </head>
 
@@ -62,13 +64,17 @@
             <div class="border-t-2 border-gray-300 mt-4 mb-4 p-4" id="section1">
                 <h2 class="bg text-2xl font-bold text-center pb-3 text-blue-900">O que é Alpine.js?</h2>
                 <p class="text-justify">
-                    <strong>Alpine.js</strong> é um pequeno framework JavaScript que oferece reatividade diretamente no HTML, 
-                    de forma leve e fácil de usar. Ele funciona declarando <code class="text-blue-900">x-data</code> diretamente no HTML, o que cria um <strong>componente reativo</strong> com variáveis internas.  
-                    Esses dados podem ser exibidos ou manipulados com outros atributos como <code class="text-blue-900">x-text</code> (para mostrar valores), 
-                    <code class="text-blue-900">x-show</code> (para mostrar/ocultar elementos), ou <code class="text-blue-900">x-on</code> (para lidar com eventos).  
+                    <strong>Alpine.js</strong> é um pequeno framework JavaScript que oferece reatividade diretamente no
+                    HTML,
+                    de forma leve e fácil de usar. Ele funciona declarando <code class="text-blue-900">x-data</code>
+                    diretamente no HTML, o que cria um <strong>componente reativo</strong> com variáveis internas.
+                    Esses dados podem ser exibidos ou manipulados com outros atributos como <code
+                        class="text-blue-900">x-text</code> (para mostrar valores),
+                    <code class="text-blue-900">x-show</code> (para mostrar/ocultar elementos), ou <code
+                        class="text-blue-900">x-on</code> (para lidar com eventos).
                     É como usar JavaScript diretamente no HTML, mas de forma muito mais elegante e higiênica.
-                  
-                  
+
+
                 </p>
 
 
@@ -91,7 +97,8 @@
                     <code>message</code> mude.
                 </p>
                 <div class="codigo">
-                    <pre class="line-numbers"><code class="language-html">&lt;h1 x-data="{ message: 'I ❤️ Alpine' }" x-text="message"&gt;&lt;/h1&gt;</code></pre>
+                    <pre
+                        class="line-numbers"><code class="language-html">&lt;h1 x-data="{ message: 'I ❤️ Alpine' }" x-text="message"&gt;&lt;/h1&gt;</code></pre>
                     <div class="border-4 border-sky-500 border-dotted border-opacity-50 mt-4 mb-4 p-4 rounded-lg">
                         <h1 x-data="{ message: 'I ❤️ Alpine!! esse texto ta dentro do x-data!!' }" x-text="message">
                         </h1>
