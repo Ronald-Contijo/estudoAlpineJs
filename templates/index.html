@@ -52,6 +52,9 @@
                 padding-right: 1em;
             }
         }
+        .descricao code{
+            @apply: text-blue-900;
+        }
     </style>
 </head>
 
@@ -107,10 +110,138 @@
 
             </div>
 
+
+            <div class="border-t-2 border-gray-300 mt-4 mb-4 p-4" id="section1">
+                <h2 class="bg text-2xl font-bold text-center pb-3 text-blue-900">x-show e eventos</h2>
+                <p class="text-justify descricao">
+                    Neste exemplo, foi utilizado o framework Alpine.js para criar uma interação simples com apenas alguns atributos no HTML.  
+                    O elemento <code>x-data="{ open: false }"</code> define uma variável reativa chamada <code>open</code>, inicialmente definida como <code>false</code>.  
+                    Ao clicar em qualquer parte da div com <code>@click="open = !open"</code>, essa variável alterna entre <code>true</code> e <code>false</code> automaticamente 🔁.
+                  <br>
+                    A primeira mensagem — <code class="text-green-900">Clique em mim!</code> — é exibida apenas quando <code>open</code> for <code>false</code> (ou seja, antes de clicar), usando o atributo <code>x-show="!open"</code>.  
+                    Quando clicamos, o valor de <code>open</code> se torna <code>true</code>, escondendo o texto anterior e mostrando a nova mensagem “Apareci!!!” e uma imagem com <code>x-show="open"</code>.  
+                    Tudo isso é feito sem escrever nenhuma função JavaScript externa! 🪄
+                
+                </p>
+                <div class="codigo">
+                    <pre
+                        class="line-numbers"><code class="language-html">
+&lt;div x-data=&quot;{ open: false }&quot; @click=&quot;open=!open&quot;&gt;
+  &lt;div x-data class=&quot;text-center&quot;&gt;
+    &lt;h1 x-show=&quot;!open&quot;&gt;Clique em mim!&lt;/h1&gt;
+
+    &lt;span x-show=&quot;open&quot;&gt;
+      &lt;h3
+        class=&quot;bg bg-orange-200 text-red-900&quot;&gt;
+        Apareci!!!
+        &lt;img src="url"&gt;
+      &lt;/h3&gt;
+    &lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+                        </code></pre>
+                    <div class="border-4 border-sky-500 border-dotted border-opacity-50 mt-4 mb-4 p-4 rounded-lg cursor-pointer select-none">
+
+                        <div x-data="{ open: false }" @click="open=!open">
+                            <div x-data class="text-center">
+                                <h1 class="bg bg-purple-400 text-2xl font-bold text-center pb-3 pt-3 text-gray-100 rounded-lg" x-show="!open">Clique em mim!</h1>
+
+                                <span x-show="open" >
+                                    <div class="bg bg-purple-200 text-2xl font-bold text-center pb-3 pt-3 text-red-900 rounded-lg border-4 border-purple-400 border-solid">
+                                        <h1>Apareci!!!</h1>
+                                        <img class="h-auto mx-auto max-w-full rounded-full p-4" src="img.jpg">
+
+                                    </div>
+
+                                </span>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+                Alpine.store('tabs', {
+                current: 'first',
+
+                items: ['first', 'second', 'third'],
+                })//salvar coisa global
+
+
+
+                <div x-data="{ open: false }">
+                    <button @click="open = ! open">Expand</button>
+
+                    <template x-if="open">
+                        <div>
+                            Content...
+                        </div>
+                    </template>
+                </div>
+
+
+                <button
+                    x-data="{ red: false }"
+                    x-bind:class="red ? 'bg-red-400' : ''"
+                    @click="red = ! red">
+                    Toggle Red
+                </button>
+
+                <div x-data="{classe : 'bg-red-200 p-4 rounded-xl'}">
+                    <div x-data="{classe2: 'bg-blue-200'}" }>
+                        <button x-bind:class="classe">+++++++++j</button>
+                    </div>
+                </div>
+
+                <div x-data="{
+    isActive: false, /* Estado que vamos usar para a condição */
+    baseClasses: 'p-4 rounded-xl transition-colors duration-300', /* Classes base que sempre aplicamos */
+    toggleActive() {
+        this.isActive = !this.isActive; /* Método para mudar o estado */
+    }
+}">
+                    <button
+                        @click="toggleActive()"
+                        :class="{
+            'bg-red-500 text-white': isActive, /* Aplica se isActive for true */
+            'bg-gray-300 text-gray-700': !isActive, /* Aplica se isActive for false */
+            [baseClasses]: true /* Sempre aplica as classes base */
+        }">
+                        <span x-text="isActive ? 'Botão Ativo' : 'Botão Inativo'"></span>
+                    </button>
+
+                </div>
+
+
+
+                <div x-data="{ statuses: ['open', 'closed', 'archived'] }">
+                    <template x-for="status in statuses">
+                        <div x-text="status"></div>
+                    </template>
+                </div>
+
+
+
+                <button x-on:click="console.log('clicked')">...</
+                        <input @keyup.enter="...">
+                    <form @submit.prevent="...">...</form>
+                    <button x-data="{teste:true}" @click="teste=false" x-show="teste">Remove Me</button>
+
+            </div>
+
+
         </div>
-
-
-    </div>
 
 </body>
 
