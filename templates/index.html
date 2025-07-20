@@ -4,19 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
 
 
 
-    <!-- Prism.js com tema Twilight Pink + Line Numbers -->
     <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-okaidia.min.css" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/prismjs/plugins/line-numbers/prism-line-numbers.min.css"
-        rel="stylesheet" />
-
+    <link href="https://cdn.jsdelivr.net/npm/prismjs/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/prismjs/plugins/line-numbers/prism-line-numbers.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-markup.min.js"></script>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"></script>
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
     <style>
         code {
             color: #21038f;
@@ -52,7 +55,8 @@
                 padding-right: 1em;
             }
         }
-        .descricao code{
+
+        .descricao code {
             @apply: text-blue-900;
         }
     </style>
@@ -61,7 +65,8 @@
 <body class="bg-rose-100 bg-gradient-to-r from-purple-500 to-pink-500">
     <div class="rounded-lg shadow-md container mx-auto pt-4 bg-gray-200 mt-4 section">
         <div class="">
-            <h1 class="text-3xl font-bold text-center">Estudo <span class="font-bold text-blue-900">Alpine.js</span>.
+            <h1 class="text-3xl font-bold text-center">Estudo <span class="font-bold text-blue-900">Alpine.js</span>
+                <img class="h-auto mx-auto max-w-full rounded-full p-4" src="frog.png">
             </h1>
 
             <div class="border-t-2 border-gray-300 mt-4 mb-4 p-4" id="section1">
@@ -111,25 +116,30 @@
             </div>
 
 
+            <!-- Faça parecido com esse, mas agora pra outro conceito importante alpine-->
             <div class="border-t-2 border-gray-300 mt-4 mb-4 p-4" id="section1">
                 <h2 class="bg text-2xl font-bold text-center pb-3 text-blue-900">x-show e eventos</h2>
                 <p class="text-justify descricao">
-                    Neste exemplo, foi utilizado o framework Alpine.js para criar uma interação simples com apenas alguns atributos no HTML.  
-                    O elemento <code>x-data="{ open: false }"</code> define uma variável reativa chamada <code>open</code>, inicialmente definida como <code>false</code>.  
-                    Ao clicar em qualquer parte da div com <code>@click="open = !open"</code>, essa variável alterna entre <code>true</code> e <code>false</code> automaticamente 🔁.
-                  <br>
-                    A primeira mensagem — <code class="text-green-900">Clique em mim!</code> — é exibida apenas quando <code>open</code> for <code>false</code> (ou seja, antes de clicar), usando o atributo <code>x-show="!open"</code>.  
-                    Quando clicamos, o valor de <code>open</code> se torna <code>true</code>, escondendo o texto anterior e mostrando a nova mensagem “Apareci!!!” e uma imagem com <code>x-show="open"</code>.  
+                    Neste exemplo, foi utilizado o framework Alpine.js para criar uma interação simples com apenas
+                    alguns atributos no HTML.
+                    O elemento <code>x-data="{ open: false }"</code> define uma variável reativa chamada
+                    <code>open</code>, inicialmente definida como <code>false</code>.
+                    Ao clicar em qualquer parte da div com <code>@click="open = !open"</code>, essa variável alterna
+                    entre <code>true</code> e <code>false</code> automaticamente 🔁.
+                    <br>
+                    A primeira mensagem — <code class="text-green-900">Clique em mim!</code> — é exibida apenas quando
+                    <code>open</code> for <code>false</code> (ou seja, antes de clicar), usando o atributo
+                    <code>x-show="!open"</code>.
+                    Quando clicamos, o valor de <code>open</code> se torna <code>true</code>, escondendo o texto
+                    anterior e mostrando a nova mensagem “Apareci!!!” e uma imagem com <code>x-show="open"</code>.
                     Tudo isso é feito sem escrever nenhuma função JavaScript externa! 🪄
-                
+
                 </p>
                 <div class="codigo">
                     <pre
-                        class="line-numbers"><code class="language-html">
-&lt;div x-data=&quot;{ open: false }&quot; @click=&quot;open=!open&quot;&gt;
+                        class="line-numbers"><code class="language-html">&lt;div x-data=&quot;{ open: false }&quot; @click=&quot;open=!open&quot;&gt;
   &lt;div x-data class=&quot;text-center&quot;&gt;
     &lt;h1 x-show=&quot;!open&quot;&gt;Clique em mim!&lt;/h1&gt;
-
     &lt;span x-show=&quot;open&quot;&gt;
       &lt;h3
         class=&quot;bg bg-orange-200 text-red-900&quot;&gt;
@@ -138,16 +148,18 @@
       &lt;/h3&gt;
     &lt;/span&gt;
   &lt;/div&gt;
-&lt;/div&gt;
-                        </code></pre>
-                    <div class="border-4 border-sky-500 border-dotted border-opacity-50 mt-4 mb-4 p-4 rounded-lg cursor-pointer select-none">
+&lt;/div&gt;</code></pre>
+                    <div
+                        class="border-4 border-sky-500 border-dotted border-opacity-50 mt-4 mb-4 p-4 rounded-lg cursor-pointer select-none">
 
                         <div x-data="{ open: false }" @click="open=!open">
                             <div x-data class="text-center">
-                                <h1 class="bg bg-purple-400 text-2xl font-bold text-center pb-3 pt-3 text-gray-100 rounded-lg" x-show="!open">Clique em mim!</h1>
+                                <h1 class="bg bg-purple-400 text-2xl font-bold text-center pb-3 pt-3 text-gray-100 rounded-lg"
+                                    x-show="!open">Clique em mim!</h1>
 
-                                <span x-show="open" >
-                                    <div class="bg bg-purple-200 text-2xl font-bold text-center pb-3 pt-3 text-red-900 rounded-lg border-4 border-purple-400 border-solid">
+                                <span x-show="open">
+                                    <div
+                                        class="bg bg-purple-200 text-2xl font-bold text-center pb-3 pt-3 text-red-900 rounded-lg border-4 border-purple-400 border-solid">
                                         <h1>Apareci!!!</h1>
                                         <img class="h-auto mx-auto max-w-full rounded-full p-4" src="img.jpg">
 
@@ -165,84 +177,332 @@
 
 
 
-
-
-
-
-
-
-
-                Alpine.store('tabs', {
-                current: 'first',
-
-                items: ['first', 'second', 'third'],
-                })//salvar coisa global
-
-
-
-                <div x-data="{ open: false }">
-                    <button @click="open = ! open">Expand</button>
-
-                    <template x-if="open">
-                        <div>
-                            Content...
+            <div class="border-t-2 border-gray-300 mt-4 mb-4 p-4" id="section1">
+                <h2 class="bg text-2xl font-bold text-center pb-3 text-blue-900">x-bind</h2>
+                <p class="text-justify">
+                    O atributo <code class="text-blue-900">x-bind</code> no <strong>Alpine.js</strong> permite vincular
+                    dinamicamente atributos HTML a valores reativos. Ele é frequentemente usado para manipular classes,
+                    estilos ou outros atributos com base no estado do componente. No exemplo abaixo, usamos <code
+                        class="text-blue-900">x-bind:class</code> para alternar entre classes Tailwind com base na
+                    variável reativa <code>active</code>. Quando o botão é clicado, a função <code>toggleActive()</code>
+                    alterna o valor de <code>active</code>, mudando a aparência do botão entre um fundo azul
+                    (<code>bg-blue-500</code>) e cinza (<code>bg-gray-300</code>). Isso demonstra como o
+                    <code>x-bind</code> pode ser usado para criar interfaces dinâmicas de forma limpa e declarativa, sem
+                    manipulação direta do DOM.
+                </p>
+                <div class="codigo">
+                    <pre class="line-numbers"><code class="language-html">&lt;div x-data=&quot;{ active: false }&quot;&gt;
+    &lt;button 
+        x-bind:class=&quot;active ? 'bg-blue-500 text-white' : 'bg-gray-300 text-gray-700'&quot; 
+        @click=&quot;active = !active&quot;
+        class=&quot;p-4 rounded-lg transition-colors duration-300&quot;&gt;
+        &lt;span x-text=&quot;active ? 'Ativo' : 'Inativo'&quot;&gt;&lt;/span&gt;
+    &lt;/button&gt;
+&lt;/div&gt;</code></pre>
+                    <div class="border-4 border-sky-500 border-dotted border-opacity-50 mt-4 mb-4 p-4 rounded-lg">
+                        <div x-data="{ active: false }" class="grid grid-cols-3 gap-4"">
+                <button 
+                    x-bind:class=" active ? 'bg-blue-500 text-white aspect-3' : 'bg-gray-300 text-gray-700'" 
+                    @click=" active=!active"
+                            class="p-4 rounded-lg transition-colors duration-300">
+                            <span x-text="active ? 'Ativo' : 'Inativo'"></span>
+                            </button>
+                            <button
+                                x-bind:class="active ? 'bg-red-500 text-white' : 'bg-gray-300 text-gray-700'"
+                                @click="active = !active"
+                                class="p-4 rounded-lg transition-colors duration-300">
+                                <span x-text="active ? 'Ativo' : 'Inativo'"></span>
+                            </button>
+                            <button
+                                x-bind:class="active ? 'bg-green-600 text-white' : 'bg-gray-300 text-gray-700'"
+                                @click="active = !active"
+                                class="p-4 rounded-lg transition-colors duration-300">
+                                <span x-text="active ? 'Ativo' : 'Inativo'"></span>
+                            </button>
                         </div>
-                    </template>
-                </div>
-
-
-                <button
-                    x-data="{ red: false }"
-                    x-bind:class="red ? 'bg-red-400' : ''"
-                    @click="red = ! red">
-                    Toggle Red
-                </button>
-
-                <div x-data="{classe : 'bg-red-200 p-4 rounded-xl'}">
-                    <div x-data="{classe2: 'bg-blue-200'}" }>
-                        <button x-bind:class="classe">+++++++++j</button>
                     </div>
                 </div>
+            </div>
 
-                <div x-data="{
-    isActive: false, /* Estado que vamos usar para a condição */
-    baseClasses: 'p-4 rounded-xl transition-colors duration-300', /* Classes base que sempre aplicamos */
-    toggleActive() {
-        this.isActive = !this.isActive; /* Método para mudar o estado */
-    }
-}">
-                    <button
-                        @click="toggleActive()"
-                        :class="{
-            'bg-red-500 text-white': isActive, /* Aplica se isActive for true */
-            'bg-gray-300 text-gray-700': !isActive, /* Aplica se isActive for false */
-            [baseClasses]: true /* Sempre aplica as classes base */
-        }">
-                        <span x-text="isActive ? 'Botão Ativo' : 'Botão Inativo'"></span>
-                    </button>
+            <div class="border-t-2 border-gray-300 mt-4 mb-4 p-4" id="section1">
+                <h2 class="bg text-2xl font-bold text-center pb-3 text-blue-900">x-for</h2>
+                <p class="text-justify"> O atributo <code class="text-blue-900">x-for</code> no
+                    <strong>Alpine.js</strong> é usado para iterar sobre uma lista
+                    de itens e renderizar elementos HTML dinamicamente. Neste exemplo, usamos <code
+                        class="text-blue-900">x-for</code> para exibir uma lista de
+                    botões, cada um representando uma tarefa da variável reativa <code>tasks</code>. Cada botão tem
+                    cores e ícones aplicados dinamicamente via jQuery,
+                    escolhidos aleatoriamente de arrays predefinidos. As classes Tailwind são usadas para estilização, e
+                    o atributo <code class="text-blue-900">x-text</code>
+                    exibe o texto de cada tarefa. A reatividade do Alpine.js garante que os botões sejam atualizados se
+                    a variável <code>tasks</code> mudar, enquanto o jQuery
+                    aplica estilos dinâmicos após o carregamento do DOM.
 
+                </p>
+                <div class="codigo">
+                    <pre class="line-numbers"><code class="language-html"> 
+&lt;div x-data="{ tasks: ['Estudar Alpine.js', 'Criar projeto', 'Testar componentes', 'Fazer o L'] }"&gt;
+    &lt;template x-for="task in tasks" :key="task"&gt;
+        &lt;button class="dynamic-button p-2 m-2 rounded-lg transition-colors duration-300 flex items-center space-x-2" x-text="task"&gt;&lt;/button&gt;
+    &lt;/template&gt;
+&lt;/div&gt;
+</code></pre>
+                    <pre class="line-numbers"><code class="language-javascript"> $(document).ready(function() {
+    const colors = ['bg-blue-500', 'bg-green-500', 'bg-red-500', 'bg-yellow-500', 'bg-purple-500'];
+    const icons = ['★', '⚡', '✔', '✖', '♠'];
+    $('.dynamic-button').each(function() {
+        const randomColor = colors[Math.floor(Math.random() * colors.length)];
+        const randomIcon = icons[Math.floor(Math.random() * icons.length)];
+        $(this).addClass(randomColor + ' text-white').prepend(`&lt;span&gt;${randomIcon}&lt;/span&gt;`);
+    });
+});
+</code></pre>
+                    <div class="border-4 border-sky-500 border-dotted border-opacity-50 mt-4 mb-4 p-4 rounded-lg">
+                        <div
+                            x-data="{ tasks: ['Estudar Alpine.js', 'Criar projeto', 'Testar componentes', 'Fazer o L'] }">
+                            <template x-for="task in tasks" :key="task">
+                                <button
+                                    class="dynamic-button p-2 m-2 rounded-lg transition-colors duration-300 flex items-center space-x-2 w-full"
+                                    x-text="task"></button>
+                            </template>
+                        </div>
+                        <script>
+                            $(document).ready(function () {
+                                const colors = ['bg-blue-500', 'bg-green-500', 'bg-red-500', 'bg-yellow-500', 'bg-purple-500'];
+                                const icons = ['★', '⚡', '✔', '✖', '♠'];
+                                $('.dynamic-button').each(function () {
+                                    const randomColor = colors[Math.floor(Math.random() * colors.length)];
+                                    const randomIcon = icons[Math.floor(Math.random() * icons.length)];
+                                    $(this).addClass(randomColor + ' text-white').prepend(`${randomIcon} `);
+                                });
+                            });
+                        </script>
+                    </div>
                 </div>
-
-
-
-                <div x-data="{ statuses: ['open', 'closed', 'archived'] }">
-                    <template x-for="status in statuses">
-                        <div x-text="status"></div>
-                    </template>
-                </div>
-
-
-
-                <button x-on:click="console.log('clicked')">...</
-                        <input @keyup.enter="...">
-                    <form @submit.prevent="...">...</form>
-                    <button x-data="{teste:true}" @click="teste=false" x-show="teste">Remove Me</button>
-
             </div>
 
 
+            <div class="border-t-2 border-gray-300 mt-4 mb-4 p-4" id="section1">
+                <h2 class="bg text-2xl font-bold text-center pb-3 text-blue-900">x-if</h2>
+                <p class="text-justify">
+                    O atributo <code class="text-blue-900">x-if</code> no <strong>Alpine.js</strong> é usado para
+                    renderizar condicionalmente elementos HTML
+                    com base em uma expressão booleana. Ele deve ser usado dentro de um elemento <code
+                        class="text-blue-900">template</code>, pois remove ou
+                    adiciona o elemento ao DOM, diferente do <code>x-show</code>, que apenas oculta/mostra via CSS. No
+                    exemplo abaixo, temos uma variável
+                    reativa <code>showContent</code> inicializada como <code>false</code>. Ao clicar no botão, a função
+                    <code>toggleContent()</code> alterna
+                    seu valor, controlando a exibição de um bloco de conteúdo estilizado com Tailwind. O atributo
+                    <code>x-if</code> garante que o conteúdo
+                    só seja renderizado no DOM quando <code>showContent</code> for <code>true</code>, proporcionando uma
+                    renderização condicional eficiente e limpa.
+                </p>
+                <div class="codigo">
+                    <pre class="line-numbers"><code class="language-html">&lt;div x-data="{ showContent: false, toggleContent() { this.showContent = !this.showContent } }"&gt;
+    &lt;button @click="toggleContent()" class="bg-blue-500 text-white p-3 rounded-lg hover:bg-blue-600 transition-colors w-full"&gt;
+        &lt;span x-text="showContent ? 'Esconder Conteúdo' : 'Mostrar Conteúdo'"&gt;&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;template x-if="showContent"&gt;
+        &lt;div class="mt-4 p-4 bg-green-100 rounded-lg text-gray-800"&gt;
+            Conteúdo visível apenas quando showContent é true!
+        &lt;/div&gt;
+    &lt;/template&gt;
+&lt;/div&gt;</code></pre>
+                    <div class="border-4 border-sky-500 border-dotted border-opacity-50 mt-4 mb-4 p-4 rounded-lg">
+                        <div x-data="{ showContent: false, toggleContent() { this.showContent = !this.showContent } }">
+                            <button @click="toggleContent()"
+                                class="w-full bg-blue-500 text-white p-3 rounded-lg hover:bg-blue-600 transition-colors">
+                                <span class="w-full"
+                                    x-text="showContent ? 'Esconder Conteúdo' : 'Mostrar Conteúdo'"></span>
+                            </button>
+                            <template x-if="showContent">
+                                <div class="mt-4 p-4 bg-green-100 rounded-lg text-gray-800">
+                                    Conteúdo visível apenas quando showContent é true!
+                                </div>
+                            </template>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+            <div class="border-t-2 border-gray-300 mt-4 mb-4 p-4" id="section1">
+                <h2 class="bg text-2xl font-bold text-center pb-3 text-blue-900">x-init com AJAX e Emoji</h2>
+                <p class="text-justify">
+                    O atributo <code class="text-blue-900">x-init</code> no <strong>Alpine.js</strong> executa código
+                    JavaScript na inicialização do componente,
+                    ideal para carregar dados via AJAX. No exemplo abaixo, usamos <code>x-init</code> para fazer uma
+                    requisição <code>fetch</code> a um endpoint J
+                    SON com informações de usuário (nome, e-mail, endereço, empresa). Os dados são exibidos com
+                    <code>x-text</code> e
+                    <code>x-bind:class</code> para estilizar dinamicamente. Um emoji aleatório é usado como foto de
+                    perfil,
+                    e ícones do Font Awesome indicam o status da requisição. Um botão permite recarregar os dados, com
+                    estilização Tailwind para um layout responsivo.
+                </p>
+                <div class="codigo">
+                    <pre class="line-numbers"><code class="language-html">
+&lt;div x-data=&quot;{
+user: { name: '', email: '', address: { street: '', suite: '', city: '', zipcode: '' }, company: { name: '', catchPhrase: '' } },
+emoji: '',
+loading: false,
+error: '',
+emojis: ['😊', '🚀', '🌟', '🦁', '🌈'],
+fetchData: async function() {
+this.loading = true;
+this.error = '';
+try {
+    const response = await fetch('https://jsonplaceholder.typicode.com/users/'+(1+Math.floor(Math.random()*9)));
+    const data = await response.json();
+    this.user = {
+        name: data.name,
+        email: data.email,
+        address: data.address,
+        company: data.company
+    };
+    this.emoji = this.emojis[Math.floor(Math.random() * this.emojis.length)];
+} catch (err) {
+    this.error = 'Erro ao carregar dados!';
+} finally {
+    this.loading = false;
+}
+}
+}&quot; x-init=&quot;fetchData&quot;&gt;
+&lt;button @click=&quot;fetchData()&quot; class=&quot;bg-blue-500 text-white p-2 rounded-lg hover:bg-blue-600 transition-colors flex items-center justify-center mb-4&quot; x-bind:disabled=&quot;loading&quot;&gt;
+&lt;i x-bind:class=&quot;loading ? 'fa-solid fa-spinner fa-spin mr-2' : 'fa-solid fa-sync mr-2'&quot;&gt;&lt;/i&gt;
+&lt;span x-text=&quot;loading ? 'Carregando...' : 'Recarregar Dados'&quot;&gt;&lt;/span&gt;
+&lt;/button&gt;
+&lt;template x-if=&quot;error&quot;&gt;
+&lt;div class=&quot;p-4 bg-red-100 rounded-lg text-gray-800 flex items-center&quot;&gt;
+    &lt;i class=&quot;fa-solid fa-exclamation-triangle mr-2 text-red-600&quot;&gt;&lt;/i&gt;
+    &lt;span x-text=&quot;error&quot;&gt;&lt;/span&gt;
+&lt;/div&gt;
+&lt;/template&gt;
+&lt;template x-if=&quot;!error &amp;&amp; user.name&quot;&gt;
+&lt;div class=&quot;p-4 bg-blue-100 rounded-lg text-gray-800 flex flex-col space-y-2&quot;&gt;
+    &lt;div class=&quot;flex items-center&quot;&gt;
+        &lt;span x-text=&quot;emoji&quot; class=&quot;text-3xl mr-2&quot;&gt;&lt;/span&gt;
+        &lt;span&gt;&lt;strong&gt;Nome:&lt;/strong&gt; &lt;span x-text=&quot;user.name&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;flex items-center&quot;&gt;
+        &lt;i class=&quot;fa-solid fa-envelope mr-2 text-blue-600&quot;&gt;&lt;/i&gt;
+        &lt;span&gt;&lt;strong&gt;E-mail:&lt;/strong&gt; &lt;span x-text=&quot;user.email&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;flex items-center&quot;&gt;
+        &lt;i class=&quot;fa-solid fa-map-marker-alt mr-2 text-blue-600&quot;&gt;&lt;/i&gt;
+        &lt;span&gt;
+            &lt;strong&gt;Endereço:&lt;/strong&gt; 
+            &lt;span x-text=&quot;user.address.street&quot;&gt;&lt;/span&gt;, 
+            &lt;span x-text=&quot;user.address.suite&quot;&gt;&lt;/span&gt;, 
+            &lt;span x-text=&quot;user.address.city&quot;&gt;&lt;/span&gt;, 
+            &lt;span x-text=&quot;user.address.zipcode&quot;&gt;&lt;/span&gt;
+        &lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;flex items-center&quot;&gt;
+        &lt;i class=&quot;fa-solid fa-building mr-2 text-blue-600&quot;&gt;&lt;/i&gt;
+        &lt;span&gt;
+            &lt;strong&gt;Empresa:&lt;/strong&gt; 
+            &lt;span x-text=&quot;user.company.name&quot;&gt;&lt;/span&gt; - 
+            &lt;span x-text=&quot;user.company.catchPhrase&quot;&gt;&lt;/span&gt;
+        &lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;/template&gt;
+&lt;template x-if=&quot;!error &amp;&amp; !user.name &amp;&amp; !loading&quot;&gt;
+&lt;div class=&quot;p-4 bg-gray-100 rounded-lg text-gray-800 flex items-center&quot;&gt;
+    &lt;i class=&quot;fa-solid fa-info-circle mr-2 text-gray-600&quot;&gt;&lt;/i&gt;
+    Nenhum dado carregado ainda.
+&lt;/div&gt;
+&lt;/template&gt;
+&lt;/div&gt;
+        </code></pre>
+                    <div class="border-4 border-sky-500 border-dotted border-opacity-50 mt-4 mb-4 p-4 rounded-lg">
+                        <div x-data="{
+                user: { name: '', email: '', address: { street: '', suite: '', city: '', zipcode: '' }, company: { name: '', catchPhrase: '' } },
+                emoji: '',
+                loading: false,
+                error: '',
+                emojis: ['😊', '🚀', '🌟', '🦁', '🌈'],
+                fetchData: async function() {
+                    this.loading = true;
+                    this.error = '';
+                    try {
+                        const response = await fetch('https://jsonplaceholder.typicode.com/users/'+(1+Math.floor(Math.random()*9)));
+                        const data = await response.json();
+                        this.user = {
+                            name: data.name,
+                            email: data.email,
+                            address: data.address,
+                            company: data.company
+                        };
+                        this.emoji = this.emojis[Math.floor(Math.random() * this.emojis.length)];
+                    } catch (err) {
+                        this.error = 'Erro ao carregar dados!';
+                    } finally {
+                        this.loading = false;
+                    }
+                }
+            }" x-init="typeof Alpine === 'undefined' ? console.error('Alpine.js não carregou!') : fetchData()">
+                            <button @click="fetchData()"
+                                class="bg-blue-500 text-white p-2 rounded-lg hover:bg-blue-600 transition-colors flex items-center justify-center mb-4"
+                                x-bind:disabled="loading">
+                                <i
+                                    x-bind:class="loading ? 'fa-solid fa-spinner fa-spin mr-2' : 'fa-solid fa-sync mr-2'"></i>
+                                <span x-text="loading ? 'Carregando...' : 'Recarregar Dados'"></span>
+                            </button>
+                            <template x-if="error">
+                                <div class="p-4 bg-red-100 rounded-lg text-gray-800 flex items-center">
+                                    <i class="fa-solid fa-exclamation-triangle mr-2 text-red-600"></i>
+                                    <span x-text="error"></span>
+                                </div>
+                            </template>
+                            <template x-if="!error && user.name">
+                                <div class="p-4 bg-blue-100 rounded-lg text-gray-800 flex flex-col space-y-2">
+                                    <div class="flex items-center">
+                                        <span x-text="emoji" class="text-3xl mr-2"></span>
+                                        <span><strong>Nome:</strong> <span x-text="user.name"></span></span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <i class="fa-solid fa-envelope mr-2 text-blue-600"></i>
+                                        <span><strong>E-mail:</strong> <span x-text="user.email"></span></span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <i class="fa-solid fa-map-marker-alt mr-2 text-blue-600"></i>
+                                        <span>
+                                            <strong>Endereço:</strong>
+                                            <span x-text="user.address.street"></span>,
+                                            <span x-text="user.address.suite"></span>,
+                                            <span x-text="user.address.city"></span>,
+                                            <span x-text="user.address.zipcode"></span>
+                                        </span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <i class="fa-solid fa-building mr-2 text-blue-600"></i>
+                                        <span>
+                                            <strong>Empresa:</strong>
+                                            <span x-text="user.company.name"></span> -
+                                            <span x-text="user.company.catchPhrase"></span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </template>
+                            <template x-if="!error && !user.name && !loading">
+                                <div class="p-4 bg-gray-100 rounded-lg text-gray-800 flex items-center">
+                                    <i class="fa-solid fa-info-circle mr-2 text-gray-600"></i>
+                                    Nenhum dado carregado ainda.
+                                </div>
+                            </template>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
+        
 </body>
-
 </html>
